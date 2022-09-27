@@ -42,6 +42,7 @@ class MoviesReviewsListSerializer(serializers.ModelSerializer):
         return [review.text for review in obj_movie.reviews.all()]
 
     def get_rating(self, obj_movie):
-        for rate in obj_movie.rating.all():
-            average = sum(rate.rating) / len(rate.rating)
-            return round(average, 2)
+        summ = 0
+        for rate in obj_movies.reviews.all():
+            summ + rate.stars
+        return round(summ / obj_movies.reviews.count(),1) if obj_movie.count() else 'no rating'
